@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Patients</title>
+</head>
+<body>
+<div class="row my-5">
+    <div class="offset-3 col-md-6 col-lg-6">
+        <h2>Patients</h2>
+    </div>
+</div>
+<div class="row my-5">
+    <div class="offset-3 col-md-6 col-lg-6">
+        <a th:href="@{/addNewPatient}" class="btn btn-primary btn-sm mb-3">New patient</a>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Address</th>
+                <!--            <th scope="col">Doctor</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="patient: ${patients}">
+                <td th:text="${patient.id}"></td>
+                <td th:text="${patient.name}"></td>
+                <td th:text="${patient.age}"></td>
+                <td th:text="${patient.address}"></td>
+                <!--            <td th:text="${patient.id}"></td>-->
+                <td>
+                <a th:href="@{'/editPatient/' + ${patient.id} }" class="btn btn-primary btn-sm mb-3">Edit</a>
+                </td>
+            </tr>
+            <tr>
+                <!--                <td>-->
+                <!--                    <a th:if="${page} > 1" th:href="@{'/doctors/' + ${page - 1}}">Previous page</a>-->
+                <!--                    <a th:href="@{'/doctors/' + ${page + 1}}">Next page</a>-->
+                <!--                </td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
+

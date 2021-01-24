@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Edit patient</title>
+    </head>
+<body>
+<div class="row my-5">
+    <div class="offset-3 col-md-6 col-lg-6">
+        <h2 class="text-left">Edit patient!</h2>
+    </div>
+</div>
+<div class="row my-3">
+    <div class="offset-3 col-md-4 col-lg-4">
+        <form th:action="@{'/editPatient/' + ${id}}" th:object="${patient}" method="POST">
+            <div class="my-2 form-group">
+                <div class="my-2 form-group">
+                    <label for="edit">Id:</label>
+                    <input id="edit" type="text" required  class="form-control"  value="" th:field="*{id}" readonly="readonly"/>
+                </div>
+                <div class="my-2 form-group">
+                    <label for="name">Name:</label>
+                    <input id="name" type="text" required  class="form-control"  value="" th:field="*{name}"/>
+                </div>
+                <div class="my-2 form-group">
+                    <label for="age">Age:</label>
+                    <input id="age" type="text" required class="form-control" value="" th:field="*{age}"/>
+                </div>
+                <div class="my-2 form-group">
+                    <label for="address">Address:</label>
+                    <input id="address" type="text" required class="form-control" value="" th:field="*{address}"/>
+                </div>
+                <div class="my-2 form-group">
+                    <label for="doctor">Doctor</label>
+                    <select required class="form-control" id="doctor" th:field="*{doctor}">
+                        <option th:each="doctor: ${doctors}" th:value="${doctor.docid}" th:text="${doctor.name} "></option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary col-2"> Save </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html></head>
+<body>
+
+</body>
+</html>
